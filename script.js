@@ -77,7 +77,6 @@ function spinWheel(ctx) {
       const prizeIndex = Math.floor((rotation % (2 * Math.PI)) / angle);
       resultText.innerText = `You won: ${prizes[prizeIndex]}`;
     }
-    ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transformations
   }
 
   requestAnimationFrame(animateSpin);
