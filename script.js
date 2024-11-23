@@ -29,7 +29,7 @@ const radius = wheel.width / 2;
 function drawWheel(ctx, startAngle) {
   ctx.clearRect(0, 0, wheel.width, wheel.height);
   ctx.translate(radius, radius);
-  ctx.rotate(-startAngle); // Rotate the wheel to the starting position
+  ctx.rotate(startAngle);
 
   for (let i = 0; i < segments; i++) {
     const angleStart = angle * i;
