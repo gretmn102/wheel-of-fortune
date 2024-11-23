@@ -69,10 +69,6 @@ function spinWheel(ctx) {
     const progress = timestamp - startTime;
     const rotation = (randomAngle * progress) / spinDuration;
 
-    ctx.clearRect(0, 0, wheel.width, wheel.height);
-    ctx.translate(radius, radius);
-    ctx.rotate(rotation);
-
     drawWheel(ctx, rotation);
 
     if (progress < spinDuration) {
