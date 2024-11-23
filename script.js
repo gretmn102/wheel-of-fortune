@@ -1,21 +1,34 @@
-const wheel = document.getElementById('wheel');
-const resultText = document.getElementById('result');
-const spinBtn = document.getElementById('spin-btn');
+// @ts-check
+
+const wheel = /** @type {HTMLCanvasElement} */ (
+  document.getElementById('wheel')
+);
+const resultText = /** @type {HTMLElement} */ (
+  document.getElementById('result')
+);
+const spinBtn =  /** @type {HTMLElement} */ (
+  document.getElementById('spin-btn')
+);
 
 // List of prizes
 const prizes = ["$100", "$200", "$300", "$400", "$500", "$1000", "Vacation", "Car", "Free Gift", "Gift Card"];
 
 // Create wheel drawing
 const ctx = wheel.getContext('2d');
+if (!ctx) {
+  throw new Error("Canvas 2d not supported");
+}
 const segments = prizes.length;
 const angle = 2 * Math.PI / segments;
 const radius = wheel.width / 2;
-const startAngle = 0;
 
-// Function to draw the wheel
-function drawWheel() {
+/**
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {number} startAngle
+ */
+function drawWheel(ctx, startAngle) {
   ctx.clearRect(0, 0, wheel.width, wheel.height);
-  // ctx.translate(radius, radius);
+  ctx.translate(radius, radius);
   ctx.rotate(-startAngle); // Rotate the wheel to the starting position
 
   for (let i = 0; i < segments; i++) {
@@ -42,8 +55,10 @@ function drawWheel() {
   ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transformations
 }
 
-// Function to spin the wheel
-function spinWheel() {
+/**
+ * @param {CanvasRenderingContext2D} ctx
+ */
+function spinWheel(ctx) {
   const randomAngle = Math.random() * 2 * Math.PI + 2 * Math.PI * 3; // Random rotation angle
   const spinDuration = 3000; // Duration of the spin in ms
 
@@ -58,7 +73,7 @@ function spinWheel() {
     ctx.translate(radius, radius);
     ctx.rotate(rotation);
 
-    drawWheel();
+    drawWheel(ctx, rotation);
 
     if (progress < spinDuration) {
       requestAnimationFrame(animateSpin);
@@ -73,7 +88,7 @@ function spinWheel() {
 }
 
 // Initialize the wheel
-drawWheel();
+drawWheel(ctx, 0);
 
 // Spin button event listener
-spinBtn.addEventListener('click', spinWheel);
+spinBtn.addEventListener('click', () => void spinWheel(ctx));
