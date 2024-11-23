@@ -56,6 +56,13 @@ function drawWheel(ctx, startAngle) {
 }
 
 /**
+ * @param {number} x
+ */
+function easeOutQuad(x) {
+  return 1 - (1 - x) * (1 - x);
+}
+
+/**
  * @param {CanvasRenderingContext2D} ctx
  */
 function spinWheel(ctx) {
@@ -67,7 +74,7 @@ function spinWheel(ctx) {
   function animateSpin(timestamp) {
     if (!startTime) startTime = timestamp;
     const progress = timestamp - startTime;
-    const rotation = (randomAngle * progress) / spinDuration;
+    const rotation = randomAngle * easeOutQuad(progress / spinDuration);
 
     drawWheel(ctx, rotation);
 
