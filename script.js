@@ -24,6 +24,24 @@ const radius = wheel.width / 2;
 
 /**
  * @param {CanvasRenderingContext2D} ctx
+ * @param {number} x
+ * @param {number} y
+ * @param {number} w
+ * @param {number} h
+ */
+function drawTriangle(ctx, x, y, w, h) {
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.moveTo(0, h / 2);
+  ctx.lineTo(w, 0);
+  ctx.lineTo(w, h);
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transformations
+}
+
+/**
+ * @param {CanvasRenderingContext2D} ctx
  * @param {number} startAngle
  */
 function drawWheel(ctx, startAngle) {
@@ -53,6 +71,10 @@ function drawWheel(ctx, startAngle) {
   }
 
   ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transformations
+
+  const [w, h] = [30, 20];
+
+  drawTriangle(ctx, radius + radius - w, radius - h / 2, w, h)
 }
 
 /**
