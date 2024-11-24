@@ -11,7 +11,14 @@ const spinBtn =  /** @type {HTMLElement} */ (
 );
 
 // List of prizes
-const prizes = ["$100", "$200", "$300", "$400", "$500", "$1000", "Vacation", "Car", "Free Gift", "Gift Card"];
+const prizes = [
+  "суставы",
+  "поясница",
+  "колени",
+  "зуб",
+  "голова",
+  "ВСЁ СРАЗУ"
+];
 
 // Create wheel drawing
 const ctx = wheel.getContext('2d');
@@ -66,7 +73,7 @@ function drawWheel(ctx, startAngle) {
     ctx.textBaseline = "middle";
     ctx.fillStyle = "#000";
     ctx.font = "bold 18px Arial";
-    ctx.fillText(prizes[i], radius - 50, 0);
+    ctx.fillText(prizes[i], radius - 60, 0);
     ctx.restore();
   }
 
