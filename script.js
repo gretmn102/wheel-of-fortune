@@ -81,7 +81,7 @@ function spinWheel(ctx) {
     if (progress < spinDuration) {
       requestAnimationFrame(animateSpin);
     } else {
-      const prizeIndex = Math.floor((rotation % (2 * Math.PI)) / angle);
+      const prizeIndex = (segments - 1) - Math.floor((rotation % (2 * Math.PI)) / angle);
       resultText.innerText = `You won: ${prizes[prizeIndex]}`;
     }
   }
