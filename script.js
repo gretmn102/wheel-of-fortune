@@ -75,7 +75,7 @@ function drawWheel(ctx, startAngle) {
     ctx.textBaseline = "middle";
     ctx.fillStyle = "#d03944";
     ctx.font = "400 20px 'Rubik Wet Paint'";
-    ctx.fillText(prizes[i], radius / 2 + 30, 0, 300);
+    ctx.fillText(prizes[i], radius / 2 + 15, 0, 300);
     ctx.restore();
   }
 
