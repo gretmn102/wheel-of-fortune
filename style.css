@@ -14,7 +14,7 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 0rem 0.25rem;
+  padding: 0.25rem;
   gap: 0.625rem;
   overflow: hidden;
 }
@@ -22,7 +22,7 @@ body {
 .github-icon {
   height: 42px;
   width: 42px;
-  background-color: #D03944;
+  fill: #D03944;
 }
 
 .main {
@@ -62,12 +62,8 @@ body {
   font-size: 36px;
   font-family: Rubik Wet Paint;
   line-height: auto;
-  /* color: #ebd7d8; */
   color: #ECD7D9;
-  /* text-shadow: #4A0F0F 0px 0px 1px, #4A0F0F 0px 0px 1px, #4A0F0F 0px 0px 1px; */
   -webkit-text-stroke: 1px #4A0F0F;
-  /* -webkit-font-smoothing: antialiased; */
-  /* border: 1px solid #4A0F0F; */
 }
 
 .header {
