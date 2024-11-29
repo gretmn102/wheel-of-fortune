@@ -9,12 +9,17 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "clear": "shx rm -rf dist",
+    "preview": "vite preview",
+    "gh-pages": "gh-pages -d dist",
+    "deploy": "npm run clear && npm run build && npm run gh-pages"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.2.0",
+    "shx": "^0.3.4",
     "vite": "^4.5.5"
   }
 }
