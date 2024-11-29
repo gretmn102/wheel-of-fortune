@@ -18,6 +18,7 @@ const prizes = [
   "зуб",
   "голова",
   "шея",
+  "спина",
   "ВСЁ СРАЗУ",
 ];
 
@@ -63,7 +64,7 @@ function drawWheel(ctx, startAngle) {
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.arc(0, 0, radius, angleStart, angleEnd);
-    ctx.fillStyle = i % 2 === 0 ? "#FFDD00" : "#FF5733"; // Alternate colors
+    ctx.fillStyle = i % 2 === 0 ? "#ff747e" : "#ffa2a9"; // Alternate colors
     ctx.fill();
     ctx.stroke();
 
@@ -72,9 +73,9 @@ function drawWheel(ctx, startAngle) {
     ctx.rotate(angleStart + angle / 2);
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = "#000";
-    ctx.font = "bold 18px Arial";
-    ctx.fillText(prizes[i], radius - 60, 0);
+    ctx.fillStyle = "#d03944";
+    ctx.font = "400 20px 'Rubik Wet Paint'";
+    ctx.fillText(prizes[i], radius / 2 + 15, 0, 300);
     ctx.restore();
   }
 
